@@ -21,6 +21,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@octokit/openapi-types": "^22.2.0",
     "@prisma/client": "^5.14.0",
     "@radix-ui/react-avatar": "^1.1.1",
     "@radix-ui/react-collapsible": "^1.1.1",
@@ -46,13 +47,16 @@
     "lucide-react": "^0.454.0",
     "next": "^15.0.1",
     "next-themes": "^0.3.0",
+    "octokit": "^4.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "server-only": "^0.0.1",
     "superjson": "^2.2.1",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.23.3"
+    "zod": "^3.23.3",
+    "@octokit/rest": "^20.0.0",
+    "@octokit/webhooks-types": "^7.0.0"
   },
   "devDependencies": {
     "@types/eslint": "^8.56.10",

@@ -14,7 +14,7 @@ export const NavButtons: React.FC = () => {
       >
         Sign in
       </Link>
-      <Link href="/signin" className={cn(buttonVariants(), "w-full")}>
+      <Link href="/signup" className={cn(buttonVariants(), "w-full")}>
         Get started
       </Link>
     </div>

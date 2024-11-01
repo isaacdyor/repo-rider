@@ -21,13 +21,12 @@ export function GitHubSigninButton() {
     <Button
       key={"github"}
       variant="outline"
+      size="lg"
       className="mb-2 w-full font-normal text-muted-foreground"
       onClick={handleLogin}
     >
-      <div className="flex items-center gap-2">
-        <GitHubLogoIcon className="h-5 w-5" />
-        <p>Continue with GitHub</p>
-      </div>
+      <GitHubLogoIcon className="h-5 w-5" />
+      <p>Continue with GitHub</p>
     </Button>
   );
 }
