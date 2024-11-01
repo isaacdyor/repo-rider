@@ -1,3 +1,4 @@
+import { CommitSelectForm } from "@/components/commit-select-form";
 import { getOctokit } from "@/lib/github";
 import { getUser } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
@@ -28,13 +29,22 @@ export default async function RepoPage({ params }: PageProps) {
     repo: name,
   });
 
-  console.log(commits);
+  const commitsWithPatches = await Promise.all(
+    commits.map((commit) =>
+      octokit.rest.repos
+        .getCommit({
+          owner: username,
+          repo: name,
+          ref: commit.sha,
+        })
+        .then((response) => response.data),
+    ),
+  );
 
   return (
     <div>
-      {commits.map((commit) => (
-        <div key={commit.sha}>{commit.commit.message}</div>
-      ))}
+      <h1 className="text-2xl font-bold">{repo.name}</h1>
+      <CommitSelectForm commits={commitsWithPatches} />
     </div>
   );
 }
