@@ -1,13 +1,19 @@
+import { Editor } from "@/components/editor";
 import { api } from "@/trpc/server";
 
-export default async function EditorPage() {
+interface PageProps {
+  params: Promise<{ id: string }>;
+}
+
+export default async function EditorPage({ params }: PageProps) {
+  const { id } = await params;
   const article = await api.articles.getById({
-    id: "9ab5eb45-1676-4fa0-a72c-4ddc2791d6c3",
+    id,
   });
+
   return (
     <div>
-      <p>{article?.title}</p>
-      <p>{article?.content}</p>
+      <Editor content={article?.content ?? ""} />
     </div>
   );
 }
